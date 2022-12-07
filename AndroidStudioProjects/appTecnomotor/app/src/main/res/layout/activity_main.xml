@@ -9,7 +9,7 @@
     <Button
         android:id="@+id/btnLeves"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginStart="2dp"
         android:onClick="leves"
         android:text="LEVES"
@@ -21,7 +21,7 @@
     <Button
         android:id="@+id/btnPesados"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:onClick="pesados"
         android:text="PESADOS"
         app:layout_constraintStart_toEndOf="@+id/btnLeves"
@@ -32,7 +32,7 @@
     <Button
         android:id="@+id/btnAgricola"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:onClick="agricolas"
         android:text="AGRiCOLA"
         app:layout_constraintStart_toEndOf="@+id/btnPesados"
@@ -43,7 +43,7 @@
     <Button
         android:id="@+id/btnMotos"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginEnd="5dp"
         android:onClick="motos"
         android:text="MOTOS"
@@ -56,11 +56,11 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="100dp"
         android:clickable="true"
         android:onClick="recyclerClick"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
