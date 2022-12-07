@@ -1,4 +1,6 @@
-package com.daniel.apptecnomotor;
+package com.daniel.apptecnomotor.retrofit;
+
+import com.daniel.apptecnomotor.controller.ApiInterface;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

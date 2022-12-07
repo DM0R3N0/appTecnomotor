@@ -1,4 +1,4 @@
-package com.daniel.apptecnomotor;
+package com.daniel.apptecnomotor.adpters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,13 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.daniel.apptecnomotor.MainActivity2;
+import com.daniel.apptecnomotor.R;
+import com.daniel.apptecnomotor.model.Montadora;
+
 import java.util.List;
 
-public class VeiculosAdapter extends RecyclerView.Adapter<VeiculosAdapter.ViewHolder> {
+public class MontadoraAdapter extends RecyclerView.Adapter<MontadoraAdapter.ViewHolder> {
 
-    private List<Veiculos> veiculosList;
+    private List<Montadora> montadoraList;
 
-    public VeiculosAdapter(List<Veiculos> veiculosList) {this.veiculosList = veiculosList;
+    public MontadoraAdapter(List<Montadora> montadoraList) {
+        this.montadoraList = montadoraList;
     }
 
     @NonNull
@@ -24,21 +29,21 @@ public class VeiculosAdapter extends RecyclerView.Adapter<VeiculosAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_veiculos, parent, false);
+                .inflate(R.layout.list_montadora, parent, false);
 
         return new ViewHolder(view, parent.getContext());
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvTitle.setText(veiculosList.get(position).getNome());
+        holder.tvTitle.setText(montadoraList.get(position).getNome());
         //holder.tvBody.setText(postsList.get(position).getTipo());
 
     }
 
     @Override
     public int getItemCount() {
-        return veiculosList.size();
+        return montadoraList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -46,12 +51,22 @@ public class VeiculosAdapter extends RecyclerView.Adapter<VeiculosAdapter.ViewHo
         TextView tvTitle;
         //TextView tvBody;
 
-        public ViewHolder(@NonNull View itemView, final Context contex) {
+        public ViewHolder(@NonNull View itemView, final Context context) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             //tvBody = itemView.findViewById(R.id.tvBody);
 
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent it = new Intent(context, MainActivity2.class);
+                    context.startActivity(it);
+                }
+            });
         }
+      }
     }
-}
+
+
+
+

@@ -1,11 +1,11 @@
-package com.daniel.apptecnomotor;
+package com.daniel.apptecnomotor.model;
 
 
 public class Montadora {
 
     private String nome;
 
-    public Montadora(String title, String body) {
+    public Montadora(String title) {
         this.nome = title;
     }
 

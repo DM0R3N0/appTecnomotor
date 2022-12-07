@@ -1,7 +1,6 @@
-package com.daniel.apptecnomotor;
+package com.daniel.apptecnomotor.adpters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.daniel.apptecnomotor.R;
+import com.daniel.apptecnomotor.model.Veiculo;
+
 import java.util.List;
 
-public class MontadoraAdapter extends RecyclerView.Adapter<MontadoraAdapter.ViewHolder> {
+public class VeiculoAdapter extends RecyclerView.Adapter<VeiculoAdapter.ViewHolder> {
 
-    private List<Montadora> montadoraList;
+    private List<Veiculo> veiculosList;
 
-    public MontadoraAdapter(List<Montadora> montadoraList) {
-        this.montadoraList = montadoraList;
+    public VeiculoAdapter(List<Veiculo> veiculosList) {this.veiculosList = veiculosList;
     }
 
     @NonNull
@@ -25,21 +26,21 @@ public class MontadoraAdapter extends RecyclerView.Adapter<MontadoraAdapter.View
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_montadora, parent, false);
+                .inflate(R.layout.list_veiculo, parent, false);
 
         return new ViewHolder(view, parent.getContext());
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvTitle.setText(montadoraList.get(position).getNome());
-        //holder.tvBody.setText(postsList.get(position).getTipo());
+        holder.tvTitle.setText(veiculosList.get(position).getId());
+        //holder..setText(veiculosList.get(position).getNome());
 
     }
 
     @Override
     public int getItemCount() {
-        return montadoraList.size();
+        return veiculosList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -52,17 +53,7 @@ public class MontadoraAdapter extends RecyclerView.Adapter<MontadoraAdapter.View
             tvTitle = itemView.findViewById(R.id.tvTitle);
             //tvBody = itemView.findViewById(R.id.tvBody);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent it = new Intent(contex, MainActivity2.class);
-                    contex.startActivity(it);
-                }
-            });
+
         }
-      }
     }
-
-
-
-
+}
