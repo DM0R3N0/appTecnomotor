@@ -17,6 +17,6 @@ recuperada na tela.
   
 Atualmente app esta na fase de selecao de marcas dos veiculos, falta implementar tela de seleção de motorização e tipo de sistemas.
 
-Abaixo tela do app e IDE
 
-![image](https://user-images.githubusercontent.com/39966028/206260620-6b957e8d-2244-44a5-8ad0-a907ea92bd3e.png)
+
+
