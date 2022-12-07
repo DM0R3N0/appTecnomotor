@@ -1,5 +1,7 @@
 package com.daniel.apptecnomotor;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
+public class VeiculosAdapter extends RecyclerView.Adapter<VeiculosAdapter.ViewHolder> {
 
-    private List<Posts> postsList;
+    private List<Veiculos> veiculosList;
 
-    public PostsAdapter(List<Posts> postsList) {
-        this.postsList = postsList;
+    public VeiculosAdapter(List<Veiculos> veiculosList) {this.veiculosList = veiculosList;
     }
 
     @NonNull
@@ -23,20 +24,21 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item, parent, false);
-        return new ViewHolder(view);
+                .inflate(R.layout.list_veiculos, parent, false);
+
+        return new ViewHolder(view, parent.getContext());
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvTitle.setText(postsList.get(position).getNome());
+        holder.tvTitle.setText(veiculosList.get(position).getNome());
         //holder.tvBody.setText(postsList.get(position).getTipo());
 
     }
 
     @Override
     public int getItemCount() {
-        return postsList.size();
+        return veiculosList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -44,15 +46,12 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         TextView tvTitle;
         //TextView tvBody;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, final Context contex) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             //tvBody = itemView.findViewById(R.id.tvBody);
-        }
+
 
         }
     }
-
-
-
-
+}

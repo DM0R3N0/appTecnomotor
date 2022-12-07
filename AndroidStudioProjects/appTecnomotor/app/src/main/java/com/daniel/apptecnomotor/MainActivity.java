@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -22,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ProgressBar progressBar;
     LinearLayoutManager layoutManager;
-    PostsAdapter adapter;
-    List<Posts> postsList = new ArrayList<>();
+    MontadoraAdapter adapter;
+    List<Montadora> postsList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter= new PostsAdapter(postsList);
+        adapter= new MontadoraAdapter(postsList);
         recyclerView.setAdapter(adapter);
 
 
@@ -44,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
     public void leves(View view){
 
         progressBar.setVisibility(View.VISIBLE);
-        RetrofitClient.getRetrofitClient().getLeves().enqueue(new Callback<List<Posts>>() {
+        RetrofitClient.getRetrofitClient().getLeves().enqueue(new Callback<List<Montadora>>() {
             @Override
-            public void onResponse(Call<List<Posts>> call, Response<List<Posts>> response) {
+            public void onResponse(Call<List<Montadora>> call, Response<List<Montadora>> response) {
                 if (response.isSuccessful() && response.body() != null){
                     postsList.clear();
                     postsList.addAll(response.body());
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Posts>> call, Throwable t) {
+            public void onFailure(Call<List<Montadora>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this, "ERROR" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
@@ -64,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void pesados(View view){
         progressBar.setVisibility(View.VISIBLE);
-        RetrofitClient.getRetrofitClient().getPesados().enqueue(new Callback<List<Posts>>() {
+        RetrofitClient.getRetrofitClient().getPesados().enqueue(new Callback<List<Montadora>>() {
             @Override
-            public void onResponse(Call<List<Posts>> call, Response<List<Posts>> response) {
+            public void onResponse(Call<List<Montadora>> call, Response<List<Montadora>> response) {
                 if (response.isSuccessful() && response.body() != null){
                     postsList.clear();
                     postsList.addAll(response.body());
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Posts>> call, Throwable t) {
+            public void onFailure(Call<List<Montadora>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this, "ERROR" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
@@ -84,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void agricolas(View view){
         progressBar.setVisibility(View.VISIBLE);
-        RetrofitClient.getRetrofitClient().getAgricolas().enqueue(new Callback<List<Posts>>() {
+        RetrofitClient.getRetrofitClient().getAgricolas().enqueue(new Callback<List<Montadora>>() {
             @Override
-            public void onResponse(Call<List<Posts>> call, Response<List<Posts>> response) {
+            public void onResponse(Call<List<Montadora>> call, Response<List<Montadora>> response) {
                 if (response.isSuccessful() && response.body() != null){
                     postsList.clear();
                     postsList.addAll(response.body());
@@ -96,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Posts>> call, Throwable t) {
+            public void onFailure(Call<List<Montadora>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this, "ERROR" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
@@ -104,9 +103,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void motos(View view){
         progressBar.setVisibility(View.VISIBLE);
-        RetrofitClient.getRetrofitClient().getMotos().enqueue(new Callback<List<Posts>>() {
+        RetrofitClient.getRetrofitClient().getMotos().enqueue(new Callback<List<Montadora>>() {
             @Override
-            public void onResponse(Call<List<Posts>> call, Response<List<Posts>> response) {
+            public void onResponse(Call<List<Montadora>> call, Response<List<Montadora>> response) {
                 if (response.isSuccessful() && response.body() != null){
                     postsList.clear();
                     postsList.addAll(response.body());
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Posts>> call, Throwable t) {
+            public void onFailure(Call<List<Montadora>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this, "ERROR" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
