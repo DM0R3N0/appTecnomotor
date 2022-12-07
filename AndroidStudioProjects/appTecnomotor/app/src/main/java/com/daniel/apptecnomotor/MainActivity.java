@@ -41,25 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void leveList(View view){
-        leves();
-    }
-
-    public void pesadoList(View view){
-        pesados();
-    }
-
-    public void agricolaList(View view){
-        agricolas();
-    }
-
-    public void motoList(View view){
-        motos();
-    }
-
-
-
-    private void leves(){
+    public void leves(View view){
 
         progressBar.setVisibility(View.VISIBLE);
         RetrofitClient.getRetrofitClient().getLeves().enqueue(new Callback<List<Posts>>() {
@@ -80,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void pesados(){
+    public void pesados(View view){
         progressBar.setVisibility(View.VISIBLE);
         RetrofitClient.getRetrofitClient().getPesados().enqueue(new Callback<List<Posts>>() {
             @Override
@@ -100,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void agricolas(){
+    public void agricolas(View view){
         progressBar.setVisibility(View.VISIBLE);
         RetrofitClient.getRetrofitClient().getAgricolas().enqueue(new Callback<List<Posts>>() {
             @Override
@@ -120,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void motos(){
+    public void motos(View view){
         progressBar.setVisibility(View.VISIBLE);
         RetrofitClient.getRetrofitClient().getMotos().enqueue(new Callback<List<Posts>>() {
             @Override
